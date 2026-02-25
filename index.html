@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Социальные угрозы для подрастающего поколения</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header styles */
+        header {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            font-size: 2rem;
+            color: #5c6bc0;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #c5cae9;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero section */
+        .hero {
+            background: linear-gradient(rgba(26, 35, 126, 0.85), rgba(40, 53, 147, 0.9)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #ff4081;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background-color: #f50057;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Main content */
+        .section-title {
+            text-align: center;
+            margin: 40px 0 30px;
+            color: #1a237e;
+            font-size: 2.2rem;
+        }
+        
+        .threats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .threat-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .threat-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .threat-icon {
+            height: 60px;
+            background-color: #3f51b5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+        }
+        
+        .threat-content {
+            padding: 25px;
+        }
+        
+        .threat-content h3 {
+            margin-bottom: 15px;
+            color: #1a237e;
+        }
+        
+        .threat-content p {
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .statistics {
+            background-color: #e8eaf6;
+            padding: 50px 0;
+            margin: 60px 0;
+        }
+        
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1a237e;
+            margin-bottom: 10px;
+        }
+        
+        .stat-text {
+            font-size: 1.1rem;
+            color: #444;
+        }
+        
+        .prevention {
+            margin-bottom: 60px;
+        }
+        
+        .prevention-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .prevention-item {
+            background-color: white;
+            padding: 20px 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .prevention-item i {
+            font-size: 1.5rem;
+            color: #3f51b5;
+            flex-shrink: 0;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a237e;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #c5cae9;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #3949ab;
+            color: #c5cae9;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .threats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-container {
+flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <h1>Социальные угрозы для подростков</h1>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#threats">Виды угроз</a></li>
+                    <li><a href="#statistics">Статистика</a></li>
+                    <li><a href="#prevention">Профилактика</a></li>
+                    <li><a href="#resources">Ресурсы</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Защитим будущее наших детей вместе</h2>
+            <p>Современный мир полон угроз для подрастающего поколения. Здесь вы можете ознакомится с социальными угрозами для детей и о том, как с ними боротся.</p>
+            <a href="#threats" class="cta-button">Узнать об угрозах</a>
+        </div>
+    </section>
+    
+    <!-- Main Content -->
+    <main class="container">
+        <h2 class="section-title" id="threats">Основные социальные угрозы</h2>
+        
+        <div class="threats-grid">
+            <!-- Threat 1 -->
+            <div class="threat-card">
+                <div class="threat-icon">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <div class="threat-content">
+                    <h3>Буллинг и Кибербуллинг</h3>
+                    <p>Травля в интернете может нанести серьезный психологический вред подростку, привести к депрессии, тревожности и даже суицидальным мыслям.</p>
+                    <p><strong>Симптомы:</strong> скрытность в поведении при использовании гаджетов, резкие перепады настроения, потеря интереса к учебе.</p>
+                </div>
+            </div>
+            
+            <!-- Threat 2 -->
+            <div class="threat-card">
+                <div class="threat-icon">
+                    <i class="fas fa-tablets"></i>
+                </div>
+                <div class="threat-content">
+                    <h3>Наркомания и алкоголизм</h3>
+                    <p>Подростковая наркомания и алкоголизм разрушают физическое и психическое здоровье, ведут к социальной деградации.</p>
+                    <p><strong>Симптомы:</strong> изменение круга общения, скрытность, проблемы с учебой, финансовые запросы без объяснения причин.</p>
+                </div>
+            </div>
+            
+            <!-- Threat 3 -->
+            <div class="threat-card">
+                <div class="threat-icon">
+                    <i class="fas fa-skull-crossbones"></i>
+                </div>
+                <div class="threat-content">
+                    <h3>Терроризм</h3>
+                    <p>Подростки также подвержены к воздействию терристов как через угрозы, так и на прямую, оказываясь жертвами террористических актов.</p>
+                </div>
+            </div>
+            
+            <!-- Threat 4 -->
+            <div class="threat-card">
+                <div class="threat-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="threat-content">
+                    <h3>Буллинг в школе</h3>
+                    <p>Физическое или психологическое насилие со стороны сверстников может привести к серьезным последствиям для психического здоровья подростка.</p>
+		    <p><strong>Симптомы:</strong> нежелание идти в школу, частые "болезни", потеря личных вещей, синяки и ссадины.</p>
+                </div>
+            </div>
+            
+            <!-- Threat 5 -->
+            <div class="threat-card">
+                <div class="threat-icon">
+                    <i class="fas fa-user-secret"></i>
+                </div>
+                <div class="threat-content">
+                    <h3>Скуллшутинг</h3>
+                    <p>В настоящее время дети сами становятся терроритами, приходят в школу с оружием и наносят тяжелые увечья своим свертникам, другим ученикам и учителям.</p>
+                    <p><strong> Из-за чего происходит:</strong> дети совершают данные поступки в частности из-за ненависти к кому-либо. В частности учителю с которым у енго плохие отношения или ученику с той же проблемой.</p>
+                </div>
+            </div>
+            
+            <!-- Threat 6 -->
+            <div class="threat-card">
+                <div class="threat-icon">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <div class="threat-content">
+                    <h3>Игровая и интернет-зависимость</h3>
+                    <p>Чрезмерное увлечение видеоиграми и социальными сетями может привести к социальной изоляции, проблемам со здоровьем и академической неуспеваемости.</p>
+                    <p><strong>Симптомы:</strong> раздражительность при отвлечении от гаджетов, пренебрежение личной гигиеной, потеря интереса к реальному общению.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Statistics Section -->
+        <section class="statistics" id="statistics">
+            <div class="container">
+                <h2 class="section-title">Статистика угроз</h2>
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="stat-number">68%</div>
+                        <div class="stat-text">подростков сталкивались с кибербуллингом</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">40%</div>
+                        <div class="stat-text">родителей не контролируют онлайн-активность детей</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1 из 5</div>
+                        <div class="stat-text">подростков подвергался буллингу в школе</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Prevention Section -->
+        <section class="prevention" id="prevention">
+            <h2 class="section-title">Меры профилактики</h2>
+            <div class="prevention-list">
+                <div class="prevention-item">
+                    <i class="fas fa-comments"></i>
+                    <div>
+                        <h3>Открытое общение</h3>
+                        <p>Поддерживайте доверительные отношения с подростком. Обсуждайте его проблемы, интересы и опасения без осуждения.</p>
+                    </div>
+                </div>
+                
+                <div class="prevention-item">
+                    <i class="fas fa-user-friends"></i>
+                    <div>
+                        <h3>Знакомство с окружением</h3>
+                        <p>Интересуйтесь друзьями вашего ребенка, их интересами и увлечениями. Приглашайте их в гости, чтобы лучше узнать.</p>
+                    </div>
+                </div>
+                
+                <div class="prevention-item">
+                    <i class="fas fa-laptop-house"></i>
+                    <div>
+                        <h3>Контроль цифровой среды</h3>
+                        <p>Установите родительский контроль, обсудите правила пользования интернетом, объясните опасности общения с незнакомцами онлайн.</p>
+                    </div>
+                </div>
+                
+                <div class="prevention-item">
+                    <i class="fas fa-heart"></i>
+                    <div>
+                        <h3>Психологическая поддержка</h3>
+<p>Обращайтесь к школьным психологам или частным специалистам при первых признаках проблем у подростка.</p>
+                    </div>
+                </div>
+                
+                <div class="prevention-item">
+                    <i class="fas fa-balance-scale"></i>
+                    <div>
+                        <h3>Здоровый баланс</h3>
+                        <p>Помогите подростку найти баланс между онлайн- и офлайн-активностями, увлечениями и обязанностями.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer id="contacts">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column" id="resources">
+                    <h3>Полезные ресурсы</h3>
+                    <ul>
+                        <li><a href="https://www.ya-roditel.ru/" target="_blank">Портал "Я - родитель"</a></li>
+                        <li><a href="https://telefon-doveria.ru/" target="_blank">Детский телефон доверия</a></li>
+                        <li><a href="https://www.psyhelp.ru/" target="_blank">Психологическая помощь подросткам</a></li>
+                        <li><a href="https://www.saferunet.ru/" target="_blank">Центр безопасного интернета</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Контактная информация</h3>
+                    <ul>
+                        <li><i class="fas fa-phone-alt"></i> Телефон доверия: 8-800-2000-122</li>
+                        <li><i class="fas fa-envelope"></i> Email: help@teenprotection.ru</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Адрес: Москва, ул. Защиты Детства, 15</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Быстрые ссылки</h3>
+                    <ul>
+                        <li><a href="#threats">Виды угроз</a></li>
+                        <li><a href="#statistics">Статистика</a></li>
+                        <li><a href="#prevention">Профилактика</a></li>
+                        <li><a href="#resources">Ресурсы</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+           
+    </footer>
+    
+    <script>
+        // Мобильное меню
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            const navList = mainNav.querySelector('ul');
+            navList.style.display = navList.style.display === 'flex' ? 'none' : 'flex';
+        });
+        
+        // Плавная прокрутка для навигации
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Закрытие мобильного меню после клика
+                    if(window.innerWidth <= 768) {
+                        mainNav.querySelector('ul').style.display = 'none';
+                    }
+                }
+            });
+        });
+        
+        // Анимация для статистики при прокрутке
+        const statNumbers = document.querySelectorAll('.stat-number');
+        const statsSection = document.querySelector('.
+statistics');
+        
+        function animateStats() {
+            const statsPosition = statsSection.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.3;
+            
+            if(statsPosition < screenPosition) {
+                statNumbers.forEach(stat => {
+                    const target = parseInt(stat.textContent);
+                    let current = 0;
+                    const increment = target / 50;
+                    
+                    const updateNumber = () => {
+                        if(current < target) {
+                            current += increment;
+                            stat.textContent = Math.ceil(current) + (stat.textContent.includes('%') ? '%' : '');
+                            setTimeout(updateNumber, 20);
+                        } else {
+                            stat.textContent = target + (stat.textContent.includes('%') ? '%' : '');
+                        }
+                    };
+                    
+                    updateNumber();
+                });
+                
+                // Удаляем обработчик после выполнения анимации
+                window.removeEventListener('scroll', animateStats);
+            }
+        }
+        
+        window.addEventListener('scroll', animateStats);
+    </script>
+</body>
+</html>
